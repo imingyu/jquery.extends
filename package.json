@@ -1,0 +1,35 @@
+{
+  "name": "jquery.extends",
+  "version": "0.1.0",
+  "description": "为jquery扩展一些额外的、常用的、便捷的、高效的方法及组件",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imingyu/jquery.extends.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "jquery-extend",
+    "extend",
+    "jquery.extend"
+  ],
+  "author": "mingyuhisoft@163.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imingyu/jquery.extends/issues"
+  },
+  "homepage": "https://github.com/imingyu/jquery.extends#readme",
+  "dependencies": {
+    "jquery": "^1.12.4"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}

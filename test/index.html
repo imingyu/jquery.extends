@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test jquery.extend</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+    <style>
+        body {
+            color: #555;
+            background-color: #f5f5f5;
+        }
+        
+        #mocha {
+            font: 20px/1.8 "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        
+        #mocha .test pre {
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mocha"></div>
+    <script src="../lib/jquery-1.12.4.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script>
+        mocha.setup('bdd')
+    </script>
+
+    <script src="../src/fn.formValue.js"></script>
+    <script src="test.fn.formValue.js"></script>
+
+    <script>
+        mocha.checkLeaks();
+        mocha.globals(['jQuery']);
+        mocha.run();
+    </script>
+</body>
+
+</html>
