@@ -122,7 +122,7 @@
             }
             return fn;
         } else if (len === 1 && typeof name !== "object") {
-            return get(fn.find("[name='" + name + "']"), name, element);
+            return get(element.find("[name='" + name + "']"), name, element);
         } else if (len > 1) {
             set(fn.find("[name='" + name + "']"), value, element);
             return fn;

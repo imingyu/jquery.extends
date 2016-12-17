@@ -99,9 +99,13 @@ describe('jQuery.fn', function() {
             });
 
             //input
-            it('获取name=name 的表单值', function() {
+            it('获取name=name 的表单值：fn是单个dom', function() {
                 var f1 = html.find("#f1");
                 expect(f1.formValue("name")).to.be.equal("我的名字是小明爱吃瓜");
+            });
+            it('获取name=name 的表单值：fn是多个dom', function() {
+                var f1 = html.find("form");
+                expect(f1.formValue("name")).to.be.equal(f1.eq(0).find("[name='name']").val());
             });
             //email
             it('获取name=email 的表单值', function() {
@@ -115,7 +119,7 @@ describe('jQuery.fn', function() {
             });
 
             //form
-            it('获取整个表单的值', function() {
+            it('获取整个表单的值：fn是单个dom', function() {
                 var f1 = html.find("#f1"),
                     value = f1.formValue();
                 assert.isObject(value);
@@ -126,6 +130,14 @@ describe('jQuery.fn', function() {
                 assert.isArray(value.checkbox);
                 assert.isTrue(value.checkbox.length > 0);
                 assert.equal(value.checkbox.join(""), "1");
+            });
+
+            //form
+            it('获取整个表单的值：fn是多个dom', function() {
+                var f1 = html.find("form"),
+                    value = f1.formValue();
+                assert.isObject(value);
+                assert.equal(value.github, "github");
             });
         });
 
@@ -166,7 +178,7 @@ describe('jQuery.fn', function() {
             });
 
             //form
-            it('设置整个表单的值', function() {
+            it('设置整个表单的值：单个dom', function() {
                 var f1 = html.find("#f1");
                 f1.formValue({
                     name: "小明",
@@ -203,6 +215,23 @@ describe('jQuery.fn', function() {
                     otherRadio: false
                 });
                 assert.equal(f1.find("[name='otherRadio']").prop("checked"), false);
+            });
+
+            //form
+            it('设置整个表单的值：多个dom', function() {
+                var from = html.find("form");
+                from.formValue({
+                    name: "小明",
+                    github: "com",
+                    radio: "2"
+                });
+
+                var f1 = html.find("#f1"),
+                    f = html.find("#f");
+                assert.equal(f.find("[name='name']").val(), "小明");
+                assert.equal(f1.find("[name='name']").val(), "小明");
+                assert.equal(f.find("[name='github']").val(), "com");
+                assert.equal(f1.find("[name='radio']:checked").val(), "2");
             });
         });
     });
