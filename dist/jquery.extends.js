@@ -1,4 +1,11 @@
-(function($, window, document) {
+/*!
+ * jquery.extends
+ * version: 0.1.0
+ * author: mingyuhisoft@163.com
+ * home: https://github.com/imingyu/jquery.extends#readme
+ * description: 为jquery扩展一些额外的、常用的、便捷的、高效的方法及组件
+ */
+ (function($, window, document) {
     "use strict";
 
     function defaultSetElementValue(subElement, value, fnElement) {
