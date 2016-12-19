@@ -9,7 +9,9 @@
 
 或者使用`npm`进行安装：
 
-`npm install jquery.extend`
+```
+npm install jquery.extend
+```
 
 
 fn.formValue
