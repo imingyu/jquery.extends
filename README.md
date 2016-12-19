@@ -5,12 +5,12 @@
 
 安装
 ===
-下载`/dist/jquery.extend.js`，引入你的页面即可使用；
+下载`/dist/jquery.extends.js`，引入你的页面即可使用；
 
 或者使用`npm`进行安装：
 
 ```
-npm install jquery.extend
+npm install jquery.extends
 ```
 
 

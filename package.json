@@ -1,6 +1,6 @@
 {
     "name": "jquery.extends",
-    "version": "0.1.0",
+    "version": "0.1.01",
     "description": "为jquery扩展一些额外的、常用的、便捷的、高效的方法及组件",
     "main": "dist/jquery.extends.js",
     "directories": {
