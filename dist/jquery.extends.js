@@ -37,7 +37,9 @@
             }
         }
     }
-})(jQuery, window, document);;(function($, window, document) {
+})(jQuery, window, document);
+
+(function($, window, document) {
     "use strict";
     /**
      * 获取或设置元素data-*属性
@@ -76,7 +78,9 @@
             return fn;
         }
     }
-})(jQuery, window, document);;(function($, window, document) {
+})(jQuery, window, document);
+
+(function($, window, document) {
     "use strict";
 
     function defaultSetElementValue(subElement, value, fnElement) {
@@ -206,7 +210,9 @@
             return fn;
         }
     }
-})(jQuery, window, document);;(function($, window, document) {
+})(jQuery, window, document);
+
+(function($, window, document) {
     "use strict";
 
     function baseToCamel(str, linkChar, size) {

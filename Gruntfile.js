@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         },
         'concat': {
             options: {
-                separator: ';',
+                separator: '\r\n\r\n',
                 banner: grunt.file.read(".version")
             },
             dist: {
