@@ -1,6 +1,16 @@
 # jquery.extends
 为jquery扩展一些额外的、常用的、便捷的、高效的方法及组件
 
+[![NPM](https://nodei.co/npm/jquery.extends.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/jquery.extends/)
+
+安装
+===
+下载`/dist/jquery.extend.js`，引入你的页面即可使用；
+
+或者使用`npm`进行安装：
+
+`npm install jquery.extend`
+
 
 fn.formValue
 ===
@@ -231,3 +241,15 @@ $(function(){
     $.restoreCamel("borderTop", "+");//border+top
 });
 ```
+
+
+
+更新记录
+===
+v0.1.0 (2016/12/19 17:00)
+- fn.formValue
+- fn.dataAttr
+- fn.attrs
+- $.toLowerCamel
+- $.toUpperCamel
+- $.restoreCamel

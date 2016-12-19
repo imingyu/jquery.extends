@@ -1,4 +1,16 @@
-(function($, window, document) {
+(function(fun) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        var root = typeof window === "undefined" ? this : window;
+        module.exports = function(jQuery, window, document) {
+            jQuery = jQuery || root.jQuery;
+            window = window || root;
+            document = document || windo.document;
+            fun(jQuery, window, document);
+        }
+    } else {
+        fun(window.jQuery, window, document);
+    }
+})(function($, window, document) {
     "use strict";
 
     function defaultSetElementValue(subElement, value, fnElement) {
@@ -128,4 +140,4 @@
             return fn;
         }
     }
-})(jQuery, window, document);
+});

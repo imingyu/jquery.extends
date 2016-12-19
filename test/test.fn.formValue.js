@@ -1,18 +1,31 @@
-(function(fun) {
-    var isBrowser = typeof window === "object";
-    if (isBrowser) {
-        var chai = window.chai,
+describe("test.fn.formValue.js", function() {
+    var isBrowser = typeof window === "object",
+        chai, $, assert, expect, fs, jsdom;
+    before(function(done) {
+        if (isBrowser) {
+            chai = window.chai;
             $ = window.jQuery;
-        fun($, chai.assert, chai.expect);
-    } else {
-        var $ = require("jquery"),
-            chai = require("chai"),
-            expect = chai.expect,
             assert = chai.assert;
-        require('../src/fn.formValue.js');
-        fun($, chai.assert, chai.expect);
-    }
-})(function($, assert, expect) {
+            expect = chai.expect;
+            done();
+        } else {
+            fs = require("fs");
+            jsdom = require("jsdom");
+            jsdom.env("", function(err, window) {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+                $ = require("jquery")(window);
+                chai = require("chai");
+                expect = chai.expect;
+                assert = chai.assert;
+                require('../src/fn.formValue.js')($, window, window.document);
+                done();
+            });
+        }
+    });
+
     describe('fn.formValue', function() {
         it('方法扩展成功', function() {
             expect($.fn.hasOwnProperty("formValue")).to.be.equal(true);
@@ -22,14 +35,27 @@
         //获取formValue测试html代码
         beforeEach(function(done) {
             if (htmlContent) {
-                html = $(htmlContent);
-                done();
-            } else {
-                $.get("test.fn.formValue.html?id=" + (new Date).getTime()).done(function(data) {
-                    htmlContent = data;
-                    html = $(data);
+                if (isBrowser) {
+                    html = $(htmlContent);
                     done();
-                });
+                } else {
+                    html = $(jsdom.jsdom(`<html><body>${htmlContent}</body></html>`).defaultView);
+                    done();
+                }
+            } else {
+                if (isBrowser) {
+                    $.get("test.fn.formValue.html?id=" + (new Date).getTime()).done(function(data) {
+                        htmlContent = data;
+                        html = $(data);
+                        done();
+                    });
+                } else {
+                    fs.readFile("test.fn.formValue.html", "utf-8", function(err, data) {
+                        htmlContent = data + "";
+                        html = $(jsdom.jsdom(`<html><body>${htmlContent}</body></html>`).defaultView);
+                        done();
+                    });
+                }
             }
         });
 
