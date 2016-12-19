@@ -6,7 +6,7 @@
             return str;
         }
         var result,
-            reg = new RegExp(linkChar + "(\\w)", "g");
+            reg = new RegExp("\\" + linkChar + "(\\w)", "g");
         result = str.replace(reg, function($0, $1) {
             return $1.toUpperCase();
         });
@@ -46,7 +46,7 @@
      * @returns {string}
      */
     $.restoreCamel = $.restoreCamel || function(camelStr, linkChar) {
-        if (!camelStr || typeof camelStr !== "string" || $.trim(camelStr) === "") {
+        if (!camelStr || typeof camelStr !== "string" || $.trim(camelStr) === "" || !linkChar || typeof linkChar !== "string") {
             return camelStr;
         }
         return camelStr.replace(new RegExp("([A-Z])", "g"), linkChar + "$1").toLowerCase();

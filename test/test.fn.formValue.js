@@ -1,12 +1,22 @@
-var expect = chai.expect,
-    assert = chai.assert,
-    $ = jQuery;
-describe('jQuery.fn', function() {
-    describe('formValue', function() {
+(function(fun) {
+    var isBrowser = typeof window === "object";
+    if (isBrowser) {
+        var chai = window.chai,
+            $ = window.jQuery;
+        fun($, chai.assert, chai.expect);
+    } else {
+        var $ = require("jquery"),
+            chai = require("chai"),
+            expect = chai.expect,
+            assert = chai.assert;
+        require('../src/fn.formValue.js');
+        fun($, chai.assert, chai.expect);
+    }
+})(function($, assert, expect) {
+    describe('fn.formValue', function() {
         it('方法扩展成功', function() {
             expect($.fn.hasOwnProperty("formValue")).to.be.equal(true);
         });
-
 
         var html, htmlContent;
         //获取formValue测试html代码

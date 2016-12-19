@@ -31,7 +31,7 @@
             }
             return fn;
         } else if (len === 1) {
-            return element.attr("data-" + attr);
+            return element.attr("data-" + $.restoreCamel(attr, "-"));
         } else if (len > 1) {
             fn.attr("data-" + attr, value);
             return fn;
